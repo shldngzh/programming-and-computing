@@ -1,3 +1,5 @@
+#!/Library/Frameworks/Python.framework/Versions/3.5/bin/python3
+
 import numpy as np
 def lis(arr):
     L = [1] * len(arr)
