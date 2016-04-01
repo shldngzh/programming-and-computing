@@ -8,7 +8,7 @@ def npdf_std(x):
 
 def npdf(x, mu, sigma):
     z = float(x-mu)/sigma
-    return 1./sigma*pdf_std(z)
+    return 1./sigma*npdf_std(z)
 
 def ncdf(target, mu, sigma):
     target = float(target)
@@ -17,7 +17,7 @@ def ncdf(target, mu, sigma):
     dx = (target-x)/N
     s = 0.
     while x < target:
-        s += pdf(x,mu,sigma) * dx
+        s += npdf(x,mu,sigma) * dx
         x += dx
     return s
     
