@@ -34,7 +34,7 @@ class Student {
             return standard;   
         }
         string to_string(){
-            std::ostringstream ss;
+            stringstream ss;
             ss << age << "," << first_name << "," << last_name << "," << standard;
             return ss.str();
         }
