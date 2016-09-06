@@ -34,6 +34,6 @@ class Solution(object):
         
   ```
   
-  #### notes
+#### notes
   
-  KEY: be wise! recursion is quite straightforward
+KEY: be wise! recursion is quite straightforward
