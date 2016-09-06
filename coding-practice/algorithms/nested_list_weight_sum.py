@@ -41,3 +41,21 @@ class Solution(object):
             else:
                 s += self.ds(ele.getList(), depth+1)
         return s
+        
+# OR
+
+class Solution(object):
+    def depthSum(self, nestedList, depth=1):
+        # by setting a default depth to avoid multiple functions
+        """
+        :type nestedList: List[NestedInteger]
+        :rtype: int
+        """
+        s = 0
+        for e in nestedList:
+            if e.isInteger():
+                s += e.getInteger() * depth
+            else:
+                s += self.depthSum(e.getList(), depth+1)
+                
+        return s
