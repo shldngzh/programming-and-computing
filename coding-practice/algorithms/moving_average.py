@@ -14,17 +14,15 @@ class MovingAverage(object):
         :type val: int
         :rtype: float
         """
-        for i in range(self.size-1, -1, -1):
-            self.data[i-1] = self.data[i]
+        for i in range(0, self.size-1):
+            self.data[i] = self.data[i+1]
         self.data[-1] = val
         
         asize = sum(1 for i in self.data if i !=None)
-        
+
         return sum(i for i in self.data if i!=None)/float(asize)
         
 
-# for optimization:
-#  1) asize can be a counter and after stack is full we can simply use self.size
 
 # Your MovingAverage object will be instantiated and called as such:
 # obj = MovingAverage(size)
