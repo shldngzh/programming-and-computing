@@ -1,4 +1,6 @@
-# LeetCode OJ
+# LeetCode OJ, Nested List Weight Sum
+
+```python
 
 # """
 # This is the interface that allows for creating nested lists.
@@ -59,3 +61,6 @@ class Solution(object):
                 s += self.depthSum(e.getList(), depth+1)
                 
         return s
+        
+        
+```
