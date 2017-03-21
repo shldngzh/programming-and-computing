@@ -12,7 +12,7 @@ from
 
 ### table merge
 
-```t-s
+```sql
 CREATE TABLE #Target(ID int, Date Date, Name varchar(10), Value int, UpdateDate datetime)
 CREATE TABLE #Source(ID int, Date Date, Name varchar(10), Value int, UpdateDate datetime)
 
