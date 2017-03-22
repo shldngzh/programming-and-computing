@@ -1,4 +1,3 @@
-```python
 class Matrix(object):
     
     def __init__(self, m, n, multi_list=None):
@@ -98,4 +97,3 @@ class Matrix(object):
             for i in range(p):
                 prd.matrix[i] = sum([self.matrix[i][k] * Mat.matrix[k] for k in range(n)])
         return prd
-```
