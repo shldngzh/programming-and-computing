@@ -1,4 +1,4 @@
-### search a node in an XML file with T-SQL and return the XML file (Entry)
+## search a node in an XML file with T-SQL and return the XML file (Entry)
 ```sql
 select tmp.Entry
 from 
@@ -10,7 +10,7 @@ from
   ) as tmp
 ```
 
-### table merge
+## table merge
 
 ```sql
 CREATE TABLE #Target(ID int, Date Date, Name varchar(10), Value int, UpdateDate datetime)
@@ -50,4 +50,57 @@ drop TABLE #Source
 
 
 
+```
+
+## send out emails
+```sql
+if <condition>
+    begin
+        >> get email data source table @T>
+
+        DECLARE @msgSubject NVARCHAR(255)
+	    SET @msgSubject = N'some subject'
+		
+	DECLARE @bodyHTML NVARCHAR(MAX)
+	SET @bodyHTML = 
+		N'some body header' +
+		N'asofdate = ' + CAST(convert(varchar(10), @asofdate, 101) AS NVARCHAR(50))
+
+    PRINT @bodyHTML
+		
+	DECLARE @tableHTML NVARCHAR(MAX) = NULL
+	SET @tableHTML =
+		N'<html>' +
+		N'<table border="2">' +
+		N'<body><table id="" border="1">' +
+		N'<th>Ticker</th>' +
+        --N'<th>Col</th>' + -- possible multiple
+		N'<tr>' + 
+		CAST((SELECT td = <Col>
+                FROM @T 
+				FOR XML PATH('tr'),TYPE) AS NVARCHAR(MAX)) +
+		N'</table></table></body>' 
+		+ N'</html>'
+
+    --PRINT @bodyHTML --debug
+	
+	IF @tableHTML IS NOT NULL
+		BEGIN
+		SET @bodyHTML =  
+				@bodyHTML +  
+				@tableHTML 
+					+ N'<br />' 
+					+ N'<i>DB object: ' + '</i>' + N'</br>';
+		END
+
+    --PRINT @bodyHTML --debug
+		
+	EXEC 
+		msdb.dbo.sp_send_dbmail 
+		@profile_name = 'Notifications', 
+		@recipients='fakenews@veryveryfake.com',
+		@subject = @msgSubject,
+		@body = @bodyHTML,
+		@body_format = 'HTML'
+END
 ```
