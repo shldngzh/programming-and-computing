@@ -25,3 +25,9 @@ format asofmonth %tm
 
 tsset asofmonth, monthly
 ```
+
+## save multiple graphs to avoid overwriting
+```Stata
+tsline var1, title("y1") name("y1")
+tsline var2, title("y2") name("y2")
+```
