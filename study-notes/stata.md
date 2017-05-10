@@ -6,7 +6,7 @@ However, using `string` is a good start.
 An example as below to load convert dates (daily) in Excel to Stata (monthly) for time series analysis later.
 
 ### step 1: set up the string formatted date in Excel
-```Vba
+```VBA
 B2 = text(A2, "mmddyy")
 ```
 
