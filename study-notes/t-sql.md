@@ -104,3 +104,8 @@ if <condition>
 		@body_format = 'HTML'
 END
 ```
+## differentiate upper & lower case of string
+```SQL
+SELECT * FROM dbo.TEST
+WHERE COL1 = 'TEST' AND UPPER(COL2) != COL2 COLLATE Latin1_General_CS_AI
+```
