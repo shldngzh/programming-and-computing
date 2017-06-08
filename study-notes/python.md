@@ -16,3 +16,19 @@ Result in `array([8, 9, 0, 1, 2, 3, 4, 5, 6, 7])`
 ```python
 df.ix[df.A == True, 'A'] = 1
 ```
+
+
+## logging
+```python
+import logging
+
+
+logger = logging.getLogger()
+h = logging.FileHandler(filename=[FILEPATH], mode='w')
+logger.addHandler(h)
+logger.setLevel(logging.INFO)
+logging.info("Some Info")
+logger.log(logging.INFO, msg='Some MEssage')
+h.close()
+logger.removeHandler(h)
+```
