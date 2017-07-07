@@ -20,3 +20,17 @@ plt.show()
 ```
 
 
+## import
+```python
+%matplotlib inline
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib as mpl
+import pandas as pd
+from rpy2.robjects.vectors import DataFrame, Vector
+from rpy2.robjects import numpy2ri
+from rpy2.robjects.lib import ggplot2
+import seaborn
+#seaborn.set(style='ticks')
+mpl.style.use('seaborn-paper')
+```
