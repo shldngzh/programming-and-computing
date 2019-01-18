@@ -12,21 +12,29 @@ df = pd.concat([price.Time.iloc[x].reset_index(drop=True), event['Event'].iloc[y
 print(df)
 ````
 
-  |      Time | Price|
-0 |2018-01-01 |   100|
-1 |2018-01-02 |   101|
-2 |2018-01-03 |   99|
-3 |2018-01-04 |   100|
-4 |2018-01-05 |   102|
+Price
 
+| Time        | Price|
+|-------------|------|
+|2018-01-01   |   100|
+|2018-01-02   |   101|
+|2018-01-03   |   99    |
+|2018-01-04   |   100|
+|2018-01-05   |   102|
 
-   StartDate    EndDate                Event
-0 2018-01-01 2018-01-01  Aliens're attacking
-1 2018-01-02 2018-01-04       The Sun is out
-2 2018-01-04 2018-01-05   No Gravity anymore
+Event
 
-        Time                Event
-0 2018-01-01  Aliens're attacking
-1 2018-01-03       The Sun is out
-2 2018-01-04       The Sun is out
-3 2018-01-05   No Gravity anymore
+|StartDate    |   EndDate   |              Event|
+|---          |----         |---            |
+| 2018-01-01 |2018-01-01 |Aliens're attacking|
+| 2018-01-02 |2018-01-04 |     The Sun is out|
+| 2018-01-04 |2018-01-05 | No Gravity anymore|
+
+Joined
+
+|       Time |               Event|
+|---    |---|
+| 2018-01-01 | Aliens're attacking|
+| 2018-01-03 |      The Sun is out|
+| 2018-01-04 |      The Sun is out|
+| 2018-01-05 |  No Gravity anymore|
